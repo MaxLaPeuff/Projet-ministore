@@ -1,0 +1,35 @@
+{% extends 'store/base.html'%}
+
+{% block content %}
+
+<br><br><br><br><br><br>
+<div class="col-md-6 mx-auto text-center">
+    <h1 style="color:rgb(142, 16, 16); text-align:center; font-family: Arial, Helvetica, sans-serif;" >{{ article.title }}</h1>
+    <small> {{ article.date_created }} </small>
+    <br> <br>
+    <strong>{{ article.intro }}</strong>
+    <br> <br>
+    <p style="color:rgb(0, 0, 0); text-align: justify; font-family: Arial, Helvetica, sans-serif;">{{ article.body }}</p>
+    <hr>
+    <h3>Commentaires</h3>
+    
+    {% for comment in comments %}
+        <article>
+            <strong class="text-align-left text-success">{{ comment.name }}</strong>  {{ comment.date_added }}
+            <p style="font-family: Arial, Helvetica, sans-serif;">{{ comment.body }}</p>
+    {% empty %}
+             <p>Pas de commentaire</p> 
+        </article>    
+    {% endfor %}    
+               
+        
+    
+<h3 class="mx-5">Ajouter un nouveau commentaire</h3>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Commenter</button>
+</form>
+<br><br><br><br><br><br>
+
+{% endblock %}

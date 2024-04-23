@@ -1,0 +1,111 @@
+{% extends 'store/base.html' %}
+{% block content %}
+
+<br><br><br><br><br><br> 
+
+<section id="mobile-products" class="product-store position-relative padding-large no-padding-top">
+      <div class="container">
+        <div class="row">
+        {% for categorie in categories %}
+        <br><br><br><br>
+          <div class="display-header d-flex justify-content-between pb-3">
+            <h2 class="display-7 text-dark text-uppercase"> {{categorie.name}} </h2>
+           
+          </div>
+
+          <div class="swiper product-swiper">
+            <div class="swiper-wrapper">
+            {% for product in categorie.category.all %}
+
+            <br><br><br>
+              <div class="swiper-slide">
+                <div class="product-card position-relative">
+                  <div class="image-holder">
+                    <img src="{{product.image.url}}"  class="img-fluid">
+                  </div>
+                  <div class="cart-concern position-relative">
+                    <div class="cart-button d-flex">
+                      <a id="{{product.id}}" class="btn max btn-medium btn-black">Ajouter au panier</a>
+                    </div>
+                  </div>
+                  <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
+                    <h3 id="aa{{product.id}}" class="card-title text-uppercase">
+                      <a> {{product.title}} </a>
+                    </h3>
+                    <span id="price{{product.id}}" class="item-price text-primary">{{product.price}} </span>
+                  </div>
+                  <div>
+                    <a href="{% url 'infos' product.id %}" class="btn btn-medium btn-black">En savoir plus</a>
+                  </div>
+                  <br><br><br>
+                  
+                </div>
+                
+              </div>
+              
+              <br><br><br><br>
+            {% endfor %}
+            </div>
+
+            <div class="swiper-pagination position-absolute text-center"></div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    
+    </section>
+
+{% endblock %}
+
+{% block js %}
+
+    <script type="text/javascript" >
+      console.log("tester");
+      if (localStorage.getItem('panier')==null){
+        var panier={};
+      } else {
+        panier=JSON.parse(localStorage.getItem('panier'));
+      }
+      $(document).on('click', '.max', function () {
+        console.log("ajouter");
+        var item_id=this.id.toString();
+        console.log(item_id);
+        if(panier[item_id] != undefined) {
+          quantite=panier[item_id][0]+1;
+          panier[item_id][0]=quantite;
+          panier[item_id][2]+= parseFloat(document.getElementById("price"+item_id).innerHTML);
+
+        } else {
+          quantite=1;
+          prix= parseFloat(document.getElementById("price"+item_id).innerHTML);
+          nom= document.getElementById("aa"+item_id).innerHTML;
+          panier[item_id]= [quantite,nom,prix];
+        } 
+        console.log(panier);
+        localStorage.setItem('panier', JSON.stringify(panier));
+        document.getElementById("panier").innerHTML="Panier("+Object.keys(panier).length +")"
+        
+      });
+      AfficherList(panier);
+      function AfficherList(panier){
+        var panierString="";
+        panierString+="<h5> Voici votre liste </h5>";
+        var index =1;
+        for (var x in panier){
+          panierString+=index;
+          panierString+=document.getElementById("aa"+x).innerHTML + " Qte: " +panier[x][0] + "</br>";
+          index++;
+        }
+      panierString+="<a href='/checkout' class='btn btn-dark' >Checkout</a>"
+      var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+      document.getElementById('panier').setAttribute('data-bs-content',panierString)
+      var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+      })
+      
+      };
+
+
+    </script>
+
+{% endblock %}

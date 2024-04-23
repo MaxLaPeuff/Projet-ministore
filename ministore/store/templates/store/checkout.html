@@ -1,0 +1,110 @@
+{% extends 'store/base.html' %}
+
+{% block content %}
+<br><br><br><br><br><br>
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="list-group" id="item-list">
+           <h2 class="text-center">Voici votre liste</h2>
+           <br>
+        </ul>
+    </div>
+</div>
+<br>
+
+<h2 class="text-center">Confirmez votre commande</h2>
+
+<form method="post">
+      {% csrf_token %}
+      <input type="hidden" name="items" id="items">
+      <div class="form-row">
+        <div class="form-group col-md-12">
+            <label for="nom"> Nom </label>
+            <input name="nom" required type="text" class="form-control" id="nom" placeholder="Votre nom">
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="email"> Email </label>
+            <input name="email" required type="email" class="form-control" id="email" placeholder="Entrez une adresse email valide">
+        </div>
+
+        <div class="form-group col-md-12">
+            <label for="phone"> Telephone </label>
+            <input name="phone" required type="number" class="form-control" id="phone"
+                placeholder="Votre numero de telephone">
+        </div>
+      </div>
+  
+      <div class="form-row"> 
+          <div class="form-group col-md-12">
+              <label for="pays">Pays</label>
+              <select name="pays" class="form-control" required id="pays">
+                  <option> Choissez votre pays...</option>
+                  <option value="Benin">Benin</option>
+                  <option value="Cote d'Ivoire">Cote d'Ivoire</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Cameroun">Cameroun</option>
+              </select>
+          </div>
+      </div>
+  
+      <div class="form-row">
+          <div class="form-group col-md-12">
+              <label for="address"> Address </label>
+              <input name="address" type="text" required type="text" class="form-control" id="address"
+                  placeholder="Entrez votre adresse">
+          </div>
+          <br>
+          <div class="col-md-12">
+            <label for="total">Somme totale à payer</label>
+            <input type="readonly" class="bg-dark text-warning" name="total" id="total">
+          </div>
+      </div><br>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary "> Commander</button>
+      </div>
+  
+</form>
+
+
+<br><br><br><br><br>
+{% endblock %}
+
+{% block js %} 
+  <script type="text/javascript">
+    if(localStorage.getItem('panier')==null){
+      var panier={};
+    }
+    else{
+      panier=JSON.parse(localStorage.getItem('panier'));
+    }
+    var total=0;
+    var nombre=0;
+    for(item in panier){
+      let nom= panier[item][1];
+      let quantite=panier[item][0];
+      let prix=panier[item][2];
+      nombre+=quantite;
+      total+=prix;
+      let itemString= ` <li class="list-group-item d-flex justify-content-between align-items-center">
+              ${nom}   
+              <span class="badge bg-primary rounded-pill">QTE ${quantite}</span>
+              <span class="badge bg-secondary rounded-pill">$ ${prix} </span>
+            </li> `;
+      $('#item-list').append(itemString);
+    }
+    let itemNombre= ` <li class="list-group-item d-flex justify-content-between align-items-center">
+              <b class ="bg-secondary text-light">TOTAL :</b>
+              <span class="badge bg-primary rounded-pill ">QTE ${nombre}</span>
+              <span class="badge bg-secondary rounded-pill">$ ${total} </span>
+            </li> `;
+      $('#item-list').append(itemNombre);
+      $('#total').val('$'+total);
+
+    $('#items').val(JSON.stringify(panier));
+
+
+
+  </script>
+{% endblock %}
