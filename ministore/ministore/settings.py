@@ -17,7 +17,15 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+# Autoriser tous les domaines Render et localhost
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
+
+# CSRF settings
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.onrender.com',
+    'http://localhost',
+    'http://127.0.0.1'
+]
 
 # Application definition
 
