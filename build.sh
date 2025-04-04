@@ -15,30 +15,31 @@ cd ministore
 find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
 find . -path "*/migrations/*.pyc" -delete
 
+# Réinitialiser la base de données via Django shell
+echo "Resetting database..."
+python manage.py shell << EOF
+from django.db import connection
+cursor = connection.cursor()
+cursor.execute("""
+    SELECT tablename FROM pg_tables
+    WHERE schemaname = 'public'
+""")
+tables = cursor.fetchall()
+with connection.cursor() as cursor:
+    for table in tables:
+        cursor.execute(f'DROP TABLE IF EXISTS "{table[0]}" CASCADE')
+    cursor.execute('COMMIT')
+EOF
+
 # Créer les migrations initiales
 echo "Making migrations..."
 python manage.py makemigrations
 python manage.py makemigrations store
 
-# Obtenir le nom de la base de données depuis l'URL
-DB_NAME=$(python - <<EOF
-import os
-import dj_database_url
-db_url = os.getenv('DATABASE_URL', '')
-if db_url:
-    print(dj_database_url.parse(db_url)['NAME'])
-EOF
-)
-
-if [ ! -z "$DB_NAME" ]; then
-    echo "Dropping all tables..."
-    psql $DATABASE_URL -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
-fi
-
 # Appliquer les migrations
 echo "Applying migrations..."
-python manage.py migrate
-python manage.py migrate store
+python manage.py migrate --no-input
+python manage.py migrate store --no-input
 
 # Charger les données initiales
 echo "Loading initial data..."
