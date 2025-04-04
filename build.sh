@@ -11,11 +11,20 @@ mkdir -p ministore/static ministore/media/media
 # Entrer dans le répertoire du projet Django
 cd ministore
 
-# Créer les migrations initiales
+# Supprimer toutes les migrations existantes sauf __init__.py
+find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+find . -path "*/migrations/*.pyc" -delete
+
+# Supprimer la base de données si elle existe
+python manage.py reset_db --noinput || true
+
+# Créer les migrations initiales pour toutes les applications
+python manage.py makemigrations
 python manage.py makemigrations store
 
 # Appliquer les migrations
-python manage.py migrate --noinput
+python manage.py migrate
+python manage.py migrate store
 
 # Charger les données initiales
 python manage.py loaddata store/fixtures/initial_data.json
@@ -24,8 +33,5 @@ python manage.py loaddata store/fixtures/initial_data.json
 python manage.py collectstatic --noinput
 
 # Copier les fichiers média
-cp -r media/media/* media/
-rm -rf media/media/
-
-# Créer un superuser si nécessaire (optionnel)
-# echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@example.com', 'adminpassword') if not User.objects.filter(username='admin').exists() else None" | python manage.py shell
+cp -r media/media/* media/ || true
+rm -rf media/media/ || true
