@@ -22,6 +22,7 @@ defer==1.0.6
 distlib==0.3.4
 distro==1.7.0
 distro-info==1.1+ubuntu0.2
+dj-database-url==2.3.0
 Django==5.0.3
 django-sslserver==0.22
 duplicity==0.8.21
