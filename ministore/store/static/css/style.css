@@ -3,8 +3,8 @@ Theme Name: Ministore
 Theme URI: 
 Author: 
 Author URI: 
-Description: Ministore is specially designed product packaged for Ministore by Moksha.
-Version: 
+Description: Ministore est un thème e-commerce moderne et responsive
+Version: 2.0
 */
 
 /*--------------------------------------------------------------
@@ -24,23 +24,29 @@ CSS STRUCTURE:
 /** 1. VARIABLES
 --------------------------------------------------------------*/
 :root {
-  --accent-color:             #717171;
-  --white-color:              #fff;
-  --black-color:              #000;
-  --gray-color:               #F3F3F3;
-  --gray-color-300:           #D8D8D8;
-  --gray-color-500:           #AEAEAE;
-  --gray-color-800:           #3A3A3A;
-  --light-gray-color:         #D7DDDF;
-  --primary-color:            #72AEC8;
-  --bs-primary-rgb:           114,174,200;
-  --light-color:              #f8f9fa;
-  --dark-color:               #212529;
-  --light-blue-color:         #EDF1F3;
-  --navbar-color-color:       #131814;
-  --swiper-theme-color:       #4A4A4A;
-  --swiper-pagination-color:  #4A4A4A;
-
+  --primary-color: #2C3E50;
+  --secondary-color: #3498DB;
+  --accent-color: #E74C3C;
+  --text-color: #2C3E50;
+  --light-gray: #ECF0F1;
+  --dark-gray: #7F8C8D;
+  --white: #FFFFFF;
+  --black: #000000;
+  --shadow: 0 2px 4px rgba(0,0,0,0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 4px;
+  --container-padding: 1rem;
+  --bs-primary-rgb: 44,62,80;
+  --light-blue-color: #EDF1F3;
+  --swiper-theme-color: #4A4A4A;
+  --swiper-pagination-color: #4A4A4A;
+  --gray-color: #F3F3F3;
+  --gray-color-300: #D8D8D8;
+  --gray-color-500: #AEAEAE;
+  --gray-color-800: #3A3A3A;
+  --light-gray-color: #D7DDDF;
+  --dark-color: #212529;
+  --navbar-color-color: #131814;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Redressed&family=Merriweather:wght@300;400;700&display=swap');
@@ -634,7 +640,6 @@ h3.cart-title {
 .search-popup .search-form button svg {
   height: 28px;
   width: 28px;
-}
 
 
 /* 1. Header
@@ -645,17 +650,93 @@ h3.cart-title {
     z-index: 10;
     transition: background 0.3s ease-out;
 }
-.navbar-toggler svg.navbar-icon {
-    width: 50px;
-    height: 50px;
+.navbar {
+  background-color: var(--white) !important;
+  box-shadow: var(--shadow);
+  padding: 1rem var(--container-padding);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
 }
-.navbar-nav .nav-item a.nav-link {
-    color: var(--accent-color);
+
+.navbar-brand {
+  font-family: 'Jost', sans-serif;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--primary-color) !important;
 }
-.navbar-nav .nav-item a.nav-link.active, 
-.navbar-nav .nav-item a.nav-link:focus, 
-.navbar-nav .nav-item a.nav-link:hover {
-    color: var(--primary-color);
+
+.nav-link {
+  color: var(--text-color) !important;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--secondary-color) !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  line-height: 1;
+  background-color: transparent;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(44, 62, 80, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Mobile menu styles */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    max-height: calc(100vh - 76px);
+    overflow-y: auto;
+  }
+
+  .navbar-nav {
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    margin: 0.5rem 0;
+  }
+
+  .nav-link {
+    padding: 0.75rem 1rem;
+    border-radius: var(--border-radius);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background-color: var(--light-gray);
+  }
+
+  .navbar .cart-btn {
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /*------------ Offcanvas -------------- */
@@ -687,7 +768,6 @@ h3.cart-title {
 @media only screen and (max-width: 991px) {
   #navbar .user-items {
     display: none;
-  }
 }
 
 
@@ -1072,4 +1152,198 @@ figure.instagram-item img.insta-image {
 .post-navigation:hover svg,
 .post-navigation:focus svg {
     fill: var(--primary-color);
+}
+
+/* Product Cards */
+.product-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.image-holder {
+  position: relative;
+  padding-top: 100%;
+  overflow: hidden;
+}
+
+.image-holder img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.product-card:hover .image-holder img {
+  transform: scale(1.05);
+}
+
+.cart-button {
+  padding: 1rem;
+  text-align: center;
+}
+
+.card-detail {
+  padding: 1rem;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.card-title a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.card-title a:hover {
+  color: var(--secondary-color);
+}
+
+.item-price {
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+/* Swiper customization */
+.swiper-wrapper {
+  padding: 1rem 0;
+}
+
+.swiper-pagination {
+  bottom: 0 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary-color) !important;
+}
+
+.cart-btn {
+  position: relative;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border: 2px solid var(--secondary-color);
+  color: var(--secondary-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cart-btn:hover {
+  background-color: var(--secondary-color);
+  color: var(--white);
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--accent-color);
+  color: var(--white);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 50%;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Offcanvas Cart */
+.offcanvas {
+  max-width: 400px;
+}
+
+.offcanvas-header {
+  background-color: var(--light-gray);
+  padding: 1rem;
+}
+
+.offcanvas-title {
+  color: var(--primary-color);
+  font-weight: 500;
+  margin: 0;
+}
+
+.offcanvas-body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-items {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.cart-item {
+  padding: 1rem;
+  border-bottom: 1px solid var(--light-gray);
+  transition: var(--transition);
+}
+
+.cart-item:hover {
+  background-color: var(--light-gray);
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--light-gray);
+}
+
+.cart-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.total-amount {
+  color: var(--accent-color);
+  font-size: 1.25rem;
+}
+
+/* Checkout Form */
+.checkout-form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--light-gray);
+  padding: 0.75rem;
+}
+
+.form-control:focus {
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
 }

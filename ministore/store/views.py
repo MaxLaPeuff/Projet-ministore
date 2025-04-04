@@ -1,38 +1,60 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from .models import Category , Product,CreateBlog,Commande
+from .models import Category,Product,CreateBlog,Commande
 from .forms import BlogForm
 from django.views.generic import ListView
+from django.db.models import Prefetch
 
 # Create your views here.
 
-def home (request):
-     return render (request,'store/index.html')
+def home(request):
+    return render(request, 'store/index.html')
  
 def shop(request):
+    # Récupérer toutes les catégories et les produits
     categories = Category.objects.all()
+    products = Product.objects.all()
+    
+    # Créer un dictionnaire pour organiser les produits par catégorie
+    category_products = {}
+    for category in categories:
+        category_products[category] = products.filter(category=category)
+    
     content = {
-        'categories': categories
+        'categories': categories,
+        'category_products': category_products
     }
     return render(request, 'store/shop.html', content)
 
-
-def infos(request,myid):
-     products=Product.objects.get(id=myid)
-     return render(request,'store/infos.html', {'products':products})
+def infos(request, myid):
+    product = Product.objects.get(id=myid)
+    # Récupérer les produits de la même catégorie, excluant le produit actuel
+    related_products = Product.objects.filter(category=product.category).exclude(id=myid)[:4]
+    return render(request, 'store/infos.html', {'product': product, 'related_products': related_products})
 
 def checkout(request):
-    if request.method=="POST":
-        items=request.POST.get('items')
-        nom=request.POST.get('nom')
-        email=request.POST.get('email')
-        phone=request.POST.get('phone')
-        pays=request.POST.get('pays')
-        address=request.POST.get('address')
-        total=request.POST.get('total')
-        com=Commande(items=items,nom=nom,email=email,phone=phone,pays=pays,address=address)
-        com.save()
+    if request.method == "POST":
+        items = request.POST.get('items')
+        nom = request.POST.get('nom')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        pays = request.POST.get('pays')
+        address = request.POST.get('address')
+        total = request.POST.get('total')
         
-    return render (request, 'store/checkout.html')
+        # Créer la commande
+        commande = Commande.objects.create(
+            items=items,
+            nom=nom,
+            email=email,
+            phone=phone,
+            pays=pays,
+            address=address,
+            total=total
+        )
+        commande.save()
+        return redirect('home')
+        
+    return render(request, 'store/checkout.html')
 
 class List(ListView):
     template_name = 'store/blog.html'
@@ -57,4 +79,3 @@ def detailView(request,slug):
         'form':form,
     }
     return render(request,'store/update.html',content)
-

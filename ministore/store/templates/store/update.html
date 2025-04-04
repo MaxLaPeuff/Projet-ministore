@@ -1,35 +1,149 @@
 {% extends 'store/base.html'%}
 
 {% block content %}
+<section class="article-section py-5 mt-5">
+  <div class="container">
+    <div class="article-content bg-white rounded-3 shadow-sm p-4 p-md-5 mx-auto" style="max-width: 800px;">
+      <!-- En-tête de l'article -->
+      <header class="article-header text-center mb-5">
+        <h1 class="display-4 mb-3 text-primary">{{ article.title }}</h1>
+        <div class="article-meta text-muted">
+          <i class="fas fa-calendar-alt me-2"></i>
+          {{ article.date_created|date:"d F Y" }}
+        </div>
+      </header>
 
-<br><br><br><br><br><br>
-<div class="col-md-6 mx-auto text-center">
-    <h1 style="color:rgb(142, 16, 16); text-align:center; font-family: Arial, Helvetica, sans-serif;" >{{ article.title }}</h1>
-    <small> {{ article.date_created }} </small>
-    <br> <br>
-    <strong>{{ article.intro }}</strong>
-    <br> <br>
-    <p style="color:rgb(0, 0, 0); text-align: justify; font-family: Arial, Helvetica, sans-serif;">{{ article.body }}</p>
-    <hr>
-    <h3>Commentaires</h3>
-    
-    {% for comment in comments %}
-        <article>
-            <strong class="text-align-left text-success">{{ comment.name }}</strong>  {{ comment.date_added }}
-            <p style="font-family: Arial, Helvetica, sans-serif;">{{ comment.body }}</p>
-    {% empty %}
-             <p>Pas de commentaire</p> 
-        </article>    
-    {% endfor %}    
-               
-        
-    
-<h3 class="mx-5">Ajouter un nouveau commentaire</h3>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Commenter</button>
-</form>
-<br><br><br><br><br><br>
+      <!-- Introduction -->
+      <div class="article-intro mb-4">
+        <p class="lead fw-bold text-dark">{{ article.intro }}</p>
+        <hr class="my-4">
+      </div>
 
+      <!-- Corps de l'article -->
+      <div class="article-body mb-5">
+        <p class="text-dark">{{ article.body|linebreaks }}</p>
+      </div>
+
+      <!-- Section commentaires -->
+      <section class="comments-section mt-5">
+        <div class="d-flex align-items-center mb-4">
+          <h3 class="h4 mb-0">
+            <i class="fas fa-comments text-primary me-2"></i>Commentaires
+          </h3>
+          <div class="line flex-grow-1 ms-3"></div>
+        </div>
+
+        <!-- Liste des commentaires -->
+        <div class="comments-list mb-5">
+          {% for comment in comments %}
+            <article class="comment-item mb-4">
+              <div class="d-flex align-items-center mb-2">
+                <div class="comment-avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-2">
+                  {{ comment.name|make_list|first|upper }}
+                </div>
+                <div>
+                  <h6 class="comment-author mb-0">{{ comment.name }}</h6>
+                  <small class="text-muted">
+                    <i class="fas fa-clock me-1"></i>{{ comment.date_added|date:"d F Y" }}
+                  </small>
+                </div>
+              </div>
+              <div class="comment-content bg-light p-3 rounded-3 ms-4">
+                {{ comment.body|linebreaks }}
+              </div>
+            </article>
+          {% empty %}
+            <div class="text-center py-4">
+              <div class="text-muted mb-3">
+                <i class="fas fa-comment-slash fa-2x"></i>
+              </div>
+              <p class="text-muted">Aucun commentaire pour le moment</p>
+            </div>
+          {% endfor %}
+        </div>
+
+        <!-- Formulaire de commentaire -->
+        <div class="comment-form bg-light p-4 rounded-3">
+          <h4 class="h5 mb-4">
+            <i class="fas fa-pen text-primary me-2"></i>Ajouter un commentaire
+          </h4>
+          <form method="post" class="needs-validation" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-paper-plane me-2"></i>Publier le commentaire
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<style>
+.article-section {
+  background-color: #f8f9fa;
+}
+
+.article-content {
+  line-height: 1.8;
+}
+
+.article-header h1 {
+  font-weight: 600;
+}
+
+.line {
+  height: 1px;
+  background: linear-gradient(to right, var(--bs-primary) 0%, transparent 100%);
+}
+
+.comment-avatar {
+  width: 40px;
+  height: 40px;
+  font-weight: bold;
+}
+
+.comment-item {
+  transition: transform 0.2s ease;
+}
+
+.comment-item:hover {
+  transform: translateX(5px);
+}
+
+.comment-content {
+  border-left: 3px solid var(--bs-primary);
+}
+
+.comment-author {
+  color: var(--bs-primary);
+}
+
+.comment-form {
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Style pour les champs de formulaire */
+.comment-form input,
+.comment-form textarea {
+  border: 1px solid #dee2e6;
+  border-radius: 0.375rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.comment-form input:focus,
+.comment-form textarea:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+}
+
+.comment-form label {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #495057;
+}
+</style>
 {% endblock %}

@@ -1,77 +1,106 @@
 {% extends 'store/base.html' %}
+{% load static %}
 
 {% block content %}
-<br><br><br><br><br><br><br>
-<section class=" product-store position-relative padding-large no-padding-top">
-    <div class="container ">
-      <div class="row " >
-        <div class="swiper product-swiper">
-          <div class="swiper-wrapper ">
-
-            <div class="swiper-slide ">
-              <div class="product-card position-relative ">
-                <div class="image-holder ">
-                  <img src="{{products.image.url}}"  class="img-fluid ">
-                </div>
-                
-                <div class="card-detail d-flex justify-content-between align-items-baseline pt-3">
-                  <h3 class=" card-title text-uppercase">
-                    <a href="#">{{products.title}}</a>
-                  </h3>
-                  <span class="item-price text-primary">${{products.price}} </span>
-                </div>
-                <div class="text-center">
-                       {{products.descvription}}
-                </div>
-                <br>
-                <div>
-                  <a id="{{product.id}}" class="btn max btn-medium btn-black">Ajouter au panier</a>
-                </div>
-                <br><br><br>
-                
-              </div>
-              
-            </div>
-            
-            <br><br><br><br><br><br>
-
-            
-          </div>
-
-          
-        </div>
-
+<div class="container mt-5 pt-5">
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="product-image-wrapper">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-fluid rounded shadow">
       </div>
     </div>
-  
-  </section>
+    <div class="col-lg-6">
+      <div class="product-info">
+        <h1 class="product-title mb-3">{{ product.name }}</h1>
+        <div class="product-price mb-4">
+          <span class="price">{{ product.price }} €</span>
+        </div>
+        <div class="product-description mb-4">
+          <h5>Description</h5>
+          <p>{{ product.description }}</p>
+        </div>
+        <div class="product-actions">
+          <button onclick="addToCart({{ product.id }}, '{{ product.name }}', {{ product.price }})" 
+                  class="btn btn-primary btn-lg add-to-cart">
+            <i class="fas fa-shopping-cart me-2"></i>
+            Ajouter au panier
+          </button>
+        </div>
+        <div class="product-details mt-4">
+          <h5>Caractéristiques</h5>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-check text-success me-2"></i>Produit de qualité</li>
+            <li><i class="fas fa-check text-success me-2"></i>Livraison rapide</li>
+            <li><i class="fas fa-check text-success me-2"></i>Garantie satisfait ou remboursé</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 
-{% endblock %}
+  <div class="related-products mt-5">
+    <h3 class="mb-4">Produits similaires</h3>
+    <div class="row">
+      {% for related_product in related_products %}
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card product-card h-100">
+          <img src="{{ related_product.image.url }}" class="card-img-top" alt="{{ related_product.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ related_product.name }}</h5>
+            <p class="card-text price">{{ related_product.price }} €</p>
+            <a href="{% url 'infos' related_product.id %}" class="btn btn-outline-primary">
+              Voir le produit
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 
-{% block js %}
+<style>
+.product-image-wrapper {
+  position: sticky;
+  top: 100px;
+}
 
-    <script type="text/javascript" >
-      console.log("tester");
-      if (localStorage.getItem('panier')==null){
-        var panier={};
-      } else {
-        panier=JSON.parse(localStorage.getItem('panier'));
-      }
-      $(document).on('click', '.max', function () {
-        console.log("ajouter");
-        var item_id=this.id.toString();
-        console.log(item_id);
-        if(panier[item_id] != undefined) {
-          panier[item_id]++;
-        } else {
-          panier[item_id]=1;
-        } 
-        console.log(panier);
-        localStorage.setItem('panier', JSON.stringify(panier));
-        document.getElementById("panier").innerHTML="Panier("+Object.keys(panier).length +")";
-        
-      } ) 
+.product-image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
 
-    </script>
+.product-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
 
+.product-price .price {
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--accent-color);
+}
+
+.product-description {
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.product-details ul li {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.add-to-cart {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+.product-card {
+  transition: transform 0.2s;
+  margin-bottom: 2rem;
+}
+</style>
 {% endblock %}
