@@ -1,0 +1,221 @@
+[
+{
+  "model": "store.category",
+  "pk": 3,
+  "fields": {
+    "name": "Iphone",
+    "date_created": "2024-04-07T10:24:58.210Z"
+  }
+},
+{
+  "model": "store.category",
+  "pk": 4,
+  "fields": {
+    "name": "Apple watch",
+    "date_created": "2024-04-07T10:25:11.108Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 5,
+  "fields": {
+    "title": "Iphone 10",
+    "price": 980.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 3,
+    "image": "media/product-item1.jpg",
+    "date_added": "2024-04-07T10:28:22.146Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 6,
+  "fields": {
+    "title": "Iphone 11",
+    "price": 1100.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 3,
+    "image": "media/product-item2.jpg",
+    "date_added": "2024-04-07T10:29:10.799Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 7,
+  "fields": {
+    "title": "Iphone 8",
+    "price": 750.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 3,
+    "image": "media/product-item3.jpg",
+    "date_added": "2024-04-07T10:30:01.119Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 8,
+  "fields": {
+    "title": "Iphone 13",
+    "price": 1500.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 3,
+    "image": "media/product-item4.jpg",
+    "date_added": "2024-04-07T10:30:45.090Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 9,
+  "fields": {
+    "title": "Iphone 12",
+    "price": 1300.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 3,
+    "image": "media/product-item5.jpg",
+    "date_added": "2024-04-07T10:31:22.148Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 10,
+  "fields": {
+    "title": "Pink watch",
+    "price": 870.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 4,
+    "image": "media/product-item6.jpg",
+    "date_added": "2024-04-07T10:32:36.560Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 11,
+  "fields": {
+    "title": "Heavy watch",
+    "price": 680.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 4,
+    "image": "media/product-item7.jpg",
+    "date_added": "2024-04-07T10:33:28.127Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 12,
+  "fields": {
+    "title": "spotted watch",
+    "price": 780.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 4,
+    "image": "media/product-item8.jpg",
+    "date_added": "2024-04-07T10:34:16.035Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 13,
+  "fields": {
+    "title": "black watch",
+    "price": 650.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 4,
+    "image": "media/product-item9_T8ZbVjN.jpg",
+    "date_added": "2024-04-07T11:19:57.858Z"
+  }
+},
+{
+  "model": "store.product",
+  "pk": 14,
+  "fields": {
+    "title": "black watch",
+    "price": 750.0,
+    "descvription": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae quos, praesentium, vel possimus iusto ipsam delectus quia numquam at quasi sint. Minus odio eligendi fugit dolor cupiditate nam, provident deleniti.",
+    "category": 4,
+    "image": "media/product-item10.jpg",
+    "date_added": "2024-04-07T11:20:40.381Z"
+  }
+},
+{
+  "model": "store.createblog",
+  "pk": 1,
+  "fields": {
+    "title": "Airpods nouvelle generation",
+    "slug": "post-1",
+    "intro": "Tempus oncu enim pellen tesque este pretium in neque, elit morbi sagittis lorem habi mattis Pellen tesque pretium feugiat vel morbi suspen dise sagittis lorem habi tasse morbi\r\nA blog is a digital publication that can complement a website or exist independently. A blog may include articles, short posts, listicles, infographics, videos, and other digital content.",
+    "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat fuga vitae qui ea consequatur animi at necessitatibus, sunt ipsam, veritatis cupiditate minima soluta aperiam tempora adipisci deleniti asperiores impedit. Excepturi, sint! Odit, dolore! Quasi, ab? Perspiciatis minima maiores amet! Totam temporibus voluptatem laudantium molestiae reprehenderit illum ipsa aliquam soluta voluptatibus incidunt ex asperiores tempora pariatur excepturi, culpa itaque assumenda saepe. Molestiae quas necessitatibus laudantium alias fuga ut suscipit neque perferendis excepturi ea, possimus tempore saepe quidem enim non explicabo laborum voluptatem libero aperiam beatae itaque labore deserunt. Illo repellendus commodi, totam rerum at nam aliquam aut nulla voluptatum voluptas natus, dicta dolores atque distinctio praesentium magnam eveniet, corporis neque laboriosam porro sequi iusto incidunt culpa! Inventore, atque hic aspernatur dignissimos illum molestias accusantium, corporis ab nobis, consectetur cupiditate unde. Eveniet veritatis dolores tenetur tempora culpa quia veniam reiciendis, blanditiis rerum in autem consectetur voluptas iure aspernatur nisi id excepturi facilis non. Voluptatibus dolor velit obcaecati minima asperiores assumenda sit natus, odit possimus suscipit voluptas enim deserunt laborum in vero molestias blanditiis, sunt itaque amet exercitationem nemo fuga! Aut magnam sapiente modi possimus, dolores eveniet nobis nam porro labore deleniti pariatur inventore esse ipsam ipsa natus, quaerat quam, quod veniam neque iste incidunt ullam molestias blanditiis. Optio amet unde nobis qui delectus fugiat explicabo, nihil suscipit! Explicabo necessitatibus doloribus, earum ipsam officia quis delectus officiis amet adipisci odit libero animi nulla exercitationem, veniam dolor suscipit quas molestiae repudiandae aliquid cum fugiat ab quisquam ducimus obcaecati. Sint cum assumenda repellat suscipit fugiat natus maiores nobis repudiandae vel distinctio temporibus, quia quis dicta recusandae porro dolores delectus perferendis quidem quam voluptatibus! Corrupti esse praesentium magnam natus ad nihil commodi porro dolore ducimus dolorem ipsum, odit, maiores vitae modi sequi? Velit explicabo, magnam consectetur quos deserunt, exercitationem nisi quasi repellendus itaque impedit maiores repudiandae maxime neque ratione, recusandae consequatur perferendis fugiat iste odio ullam ut quae culpa. Dignissimos iusto quas eos qui, illum, ullam consequuntur dolores quisquam laudantium labore ducimus, soluta dolorem? Explicabo numquam hic sed excepturi obcaecati et laborum. Non repellat fugiat minus incidunt excepturi sed autem, magnam hic. Tenetur eaque harum accusamus enim omnis sequi praesentium expedita dolor, unde odio neque quibusdam pariatur adipisci aliquam reiciendis laboriosam eveniet quos cupiditate sunt, quaerat ea aut. Eos, laborum adipisci. Architecto laborum at quisquam dolorum vero eos iusto dolorem mollitia a inventore sunt praesentium in, voluptas quibusdam! Sequi architecto aspernatur fuga iure temporibus iusto perspiciatis pariatur! Suscipit tempore sit architecto assumenda corrupti facilis voluptas, totam modi! Vel ea explicabo quam? Blanditiis voluptatum officia vitae aliquam iure atque voluptates enim? Odit amet similique, porro hic eveniet enim ad beatae dicta minima illo. Nulla, molestias a neque, culpa quasi dolores similique unde consequuntur molestiae praesentium, et minus? Laboriosam beatae perspiciatis repudiandae ullam enim molestiae saepe quibusdam nisi necessitatibus neque nulla dolorem totam, architecto modi. Excepturi officiis labore quidem, fugit incidunt natus soluta rem quae voluptate, beatae nisi facere quo dolorum, iste animi repudiandae nesciunt perferendis esse iusto exercitationem. Dolor repellat mollitia sunt recusandae aut nesciunt obcaecati eaque.",
+    "image": "media/post-item1.jpg",
+    "date_created": "2024-04-14T20:16:48Z"
+  }
+},
+{
+  "model": "store.createblog",
+  "pk": 2,
+  "fields": {
+    "title": "Technonologie",
+    "slug": "post-2",
+    "intro": "Technology Hack You Won't Get orem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat fuga vitae qui ea consequatur animi at necessitatibus, sunt ipsam, veritatis cupidita",
+    "body": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat fuga vitae qui ea consequatur animi at necessitatibus, sunt ipsam, veritatis cupiditate minima soluta aperiam tempora adipisci deleniti asperiores impedit. Excepturi, sint! Odit, dolore! Quasi, ab? Perspiciatis minima maiores amet! Totam temporibus voluptatem laudantium molestiae reprehenderit illum ipsa aliquam soluta voluptatibus incidunt ex asperiores tempora pariatur excepturi, culpa itaque assumenda saepe. Molestiae quas necessitatibus laudantium alias fuga ut suscipit neque perferendis excepturi ea, possimus tempore saepe quidem enim non explicabo laborum voluptatem libero aperiam beatae itaque labore deserunt. Illo repellendus commodi, totam rerum at nam aliquam aut nulla voluptatum voluptas natus, dicta dolores atque distinctio praesentium magnam eveniet, corporis neque laboriosam porro sequi iusto incidunt culpa! Inventore, atque hic aspernatur dignissimos illum molestias accusantium, corporis ab nobis, consectetur cupiditate unde. Eveniet veritatis dolores tenetur tempora culpa quia veniam reiciendis, blanditiis rerum in autem consectetur voluptas iure aspernatur nisi id excepturi facilis non. Voluptatibus dolor velit obcaecati minima asperiores assumenda sit natus, odit possimus suscipit voluptas enim deserunt laborum in vero molestias blanditiis, sunt itaque amet exercitationem nemo fuga! Aut magnam sapiente modi possimus, dolores eveniet nobis nam porro labore deleniti pariatur inventore esse ipsam ipsa natus, quaerat quam, quod veniam neque iste incidunt ullam molestias blanditiis. Optio amet unde nobis qui delectus fugiat explicabo, nihil suscipit! Explicabo necessitatibus doloribus, earum ipsam officia quis delectus officiis amet adipisci odit libero animi nulla exercitationem, veniam dolor suscipit quas molestiae repudiandae aliquid cum fugiat ab quisquam ducimus obcaecati. Sint cum assumenda repellat suscipit fugiat natus maiores nobis repudiandae vel distinctio temporibus, quia quis dicta recusandae porro dolores delectus perferendis quidem quam voluptatibus! Corrupti esse praesentium magnam natus ad nihil commodi porro dolore ducimus dolorem ipsum, odit, maiores vitae modi sequi? Velit explicabo, magnam consectetur quos deserunt, exercitationem nisi quasi repellendus itaque impedit maiores repudiandae maxime neque ratione, recusandae consequatur perferendis fugiat iste odio ullam ut quae culpa. Dignissimos iusto quas eos qui, illum, ullam consequuntur dolores quisquam laudantium labore ducimus, soluta dolorem? Explicabo numquam hic sed excepturi obcaecati et laborum. Non repellat fugiat minus incidunt excepturi sed autem, magnam hic. Tenetur eaque harum accusamus enim omnis sequi praesentium expedita dolor, unde odio neque quibusdam pariatur adipisci aliquam reiciendis laboriosam eveniet quos cupiditate sunt, quaerat ea aut. Eos, laborum adipisci. Architecto laborum at quisquam dolorum vero eos iusto dolorem mollitia a inventore sunt praesentium in, voluptas quibusdam! Sequi architecto aspernatur fuga iure temporibus iusto perspiciatis pariatur! Suscipit tempore sit architecto assumenda corrupti facilis voluptas, totam modi! Vel ea explicabo quam? Blanditiis voluptatum officia vitae aliquam iure atque voluptates enim? Odit amet similique, porro hic eveniet enim ad beatae dicta minima illo. Nulla, molestias a neque, culpa quasi dolores similique unde consequuntur molestiae praesentium, et minus? Laboriosam beatae perspiciatis repudiandae ullam enim molestiae saepe quibusdam nisi necessitatibus neque nulla dolorem totam, architecto modi. Excepturi officiis labore quidem, fugit incidunt natus soluta rem quae voluptate, beatae nisi facere quo dolorum, iste animi repudiandae nesciunt perferendis esse iusto exercitationem. Dolor repellat mollitia sunt recusandae aut nesciunt obcaecati eaque.",
+    "image": "media/post-item2.jpg",
+    "date_created": "2024-04-14T20:21:44Z"
+  }
+},
+{
+  "model": "store.createblog",
+  "pk": 3,
+  "fields": {
+    "title": "Camera",
+    "slug": "post-3",
+    "intro": "orem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat fuga vitae qui ea consequatur animi at necessitatibus, sunt ipsam, veritatis cupidita",
+    "body": "Top 10 Small Camera In The World Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, quaerat rem! Qui et odit reprehenderit aspernatur veniam officiis nobis accusantium, dicta enim. Rem corporis voluptatibus aliquam molestiae voluptate debitis perferendis iure sequi, explicabo optio, delectus dolor ex nam illo error iste! Sit incidunt vero quibusdam minus laboriosam similique quas magni, hic deleniti labore nobis repellat aliquid quae, accusantium vel! Eveniet iste dolorem ea porro dicta veritatis id placeat dignissimos ex recusandae fugiat, aliquid molestias doloremque nemo adipisci obcaecati quasi sapiente. Nam, rerum excepturi. Est corrupti et accusantium dicta vero asperiores, itaque dolore magnam officiis temporibus facilis consequatur repellat ex architecto sit quia eos nisi! Quasi eveniet quod necessitatibus aliquid, labore nostrum iste temporibus, maxime enim magnam ipsum assumenda iusto dolorum illo culpa nulla cumque est esse reprehenderit quam. Corrupti, natus quos ipsam, porro ea mollitia blanditiis rerum voluptate alias enim nulla ex id quidem, magni cum doloribus? Sequi ratione mollitia cupiditate saepe alias natus, eligendi nobis voluptas accusamus veritatis repellendus. Illo dolores culpa voluptate vel magni dolore nobis, consequatur facere! Numquam commodi quam maiores? Repudiandae illo perferendis aliquam debitis deserunt. Voluptatum commodi ipsum, ipsa pariatur facilis magnam facere quos ipsam, deserunt temporibus suscipit. Quas odio earum velit itaque minima maxime obcaecati culpa officia suscipit doloribus rem est ducimus illum expedita molestias qui, harum ipsa dolores excepturi! Non, hic officiis est doloribus quis eum corrupti distinctio reiciendis explicabo soluta molestias quam et ea, quaerat labore modi vel, repudiandae tempore? Non pariatur assumenda libero quia ipsa odio delectus, dolores vero deserunt fugit placeat ipsum illo sapiente sunt possimus. Excepturi a accusamus in optio voluptas accusantium, recusandae dolore incidunt voluptates beatae reprehenderit non fugiat atque quos exercitationem rerum voluptatum nisi. Deleniti ex aspernatur nihil eveniet enim dolorum rem autem vitae, quisquam aut fuga dolor eos maxime voluptatibus facere debitis numquam dicta animi odit suscipit possimus? Delectus tenetur quae obcaecati! Cumque exercitationem debitis quasi corporis veniam architecto fugit sit facere quo earum quis eligendi dolor natus, nemo atque recusandae sint aspernatur reiciendis? Laudantium, quis. Itaque laborum totam animi, doloremque a mollitia hic excepturi. Minima excepturi nisi temporibus laudantium, mollitia sed, provident et perspiciatis enim ad aperiam. Maxime tempore numquam eius ratione rem officia nulla quaerat molestias culpa dolor earum assumenda commodi, debitis consequatur autem iure ad quisquam doloremque impedit ipsum blanditiis non. Expedita magni nulla, sequi laudantium temporibus provident eaque necessitatibus debitis commodi dolorem voluptatum consequatur consectetur aut. Sint voluptas similique aliquam suscipit saepe?",
+    "image": "media/post-item3.jpg",
+    "date_created": "2024-04-14T20:23:34Z"
+  }
+},
+{
+  "model": "store.comment",
+  "pk": 1,
+  "fields": {
+    "post": 2,
+    "email": "maxaraye18@gmail.com",
+    "body": "cool, je recommande",
+    "name": "max",
+    "date_added": "2024-04-16T07:14:32.247Z"
+  }
+},
+{
+  "model": "store.comment",
+  "pk": 2,
+  "fields": {
+    "post": 3,
+    "email": "maxaraye18@gmail.com",
+    "body": "Interessant",
+    "name": "cherif deen",
+    "date_added": "2024-05-07T08:26:11.990Z"
+  }
+},
+{
+  "model": "store.comment",
+  "pk": 3,
+  "fields": {
+    "post": 3,
+    "email": "maxaraye18@gmail.com",
+    "body": "Passionnant",
+    "name": "Max",
+    "date_added": "2025-04-04T10:35:57.123Z"
+  }
+},
+{
+  "model": "store.commande",
+  "pk": 8,
+  "fields": {
+    "items": "{\"8\":[1,\"\\n                      <a> Iphone 13 </a>\\n                    \",1500],\"13\":[1,\"\\n                      <a> black watch </a>\\n                    \",650],\"14\":[1,\"\\n                      <a> black watch </a>\\n                    \",750]}",
+    "nom": "IUT",
+    "email": "maxaraye18@gmail.com",
+    "phone": "12345678",
+    "pays": "Benin",
+    "address": "Bkni",
+    "date_created": "2024-12-29T11:30:54.890Z",
+    "total": ""
+  }
+}
+]
