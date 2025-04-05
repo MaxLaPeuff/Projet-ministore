@@ -1,3 +1,4 @@
+
 dj-database-url==2.3.0
 Django==4.2.11
 django-allauth==65.1.0
@@ -11,10 +12,11 @@ grpcio==1.68.0
 gunicorn==23.0.0
 image==1.5.33
 loguru==0.7.3
+mkl-service==2.4.0
+ml-dtypes==0.4.1
 pillow==10.4.0
 psycopg==3.2.1
 psycopg2==2.9.10
 psycopg2-binary==2.9.10
-sqlparse==0.5.1
 wheel==0.43.0
 whitenoise==6.8.2

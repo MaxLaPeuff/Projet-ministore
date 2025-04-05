@@ -91,6 +91,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
@@ -111,7 +112,3 @@ from pathlib import Path
 # Chemin absolu du projet
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Répertoire des fichiers statiques
-STATICFILES_DIRS = [
-    BASE_DIR / "static",  # Chemin correct vers le dossier static
-]
