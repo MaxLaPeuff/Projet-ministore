@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-4@%2l8=x0vk#bq0+$)!p_&w3n=h3f0)hs$r&ig7f-m@4kqk7==
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ministore-m0zg.onrender.com', 'localhost', '127.0.0.1']
 
 # Application definition
 INSTALLED_APPS = [
