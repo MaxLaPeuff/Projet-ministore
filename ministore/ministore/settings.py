@@ -106,10 +106,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 import os
-import dj_database_url
+from pathlib import Path
 
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# Chemin absolu du projet
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-ALLOWED_HOSTS = ['*']  # ou ['nom-de-ton-app.onrender.com'] pour plus de sécurité
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Répertoire des fichiers statiques
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Chemin correct vers le dossier static
+]

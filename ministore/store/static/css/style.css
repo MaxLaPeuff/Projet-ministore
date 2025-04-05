@@ -74,7 +74,6 @@ CSS STRUCTURE:
 
 .banner,
 .order-form{
-	background:linear-gradient( rgba(0, 0, 0, .5),rgba(0, 0, 0, .5)),url('../img/restaurant-1837150.jpg') center center fixed no-repeat;
 	background-size: cover;
 	height: 800px;
 }
@@ -86,7 +85,6 @@ CSS STRUCTURE:
 }
 
 .cc-menu{
-	background:linear-gradient( rgba(0, 0, 0, .5)),url('../img/healthy-7213383_1920.jpg') center center fixed no-repeat;
 	background-size: cover;
 	height: 1500px;
 }
