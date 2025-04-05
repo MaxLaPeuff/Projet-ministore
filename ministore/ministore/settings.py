@@ -36,6 +36,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'ministore.urls'
@@ -100,3 +101,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+import os
+import dj_database_url
+
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+ALLOWED_HOSTS = ['*']  # ou ['nom-de-ton-app.onrender.com'] pour plus de sécurité
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
